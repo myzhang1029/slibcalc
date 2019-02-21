@@ -1,11 +1,18 @@
 // pages/d2r/d2r.js
+var sbl = require("../../utils/libsbl.js");
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    vaule: undefined
+  },
 
+  formSubmit: function (e) {
+    this.setData({
+      value: "结果是：" + sbl._slib_deg2rad(e.detail.value["deg"])
+    });
   },
 
   /**

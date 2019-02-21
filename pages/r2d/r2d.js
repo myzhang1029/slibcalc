@@ -1,11 +1,18 @@
 // pages/r2d/r2d.js
+var sbl = require("../../utils/libsbl.js");
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    value: undefined
+  },
 
+  formSubmit: function (e) {
+    this.setData({
+      value: "结果是：" + sbl._slib_rad2deg(e.detail.value["rad"])
+    });
   },
 
   /**

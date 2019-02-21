@@ -1,2 +1,15 @@
 <!--pages/r2d/r2d.wxml-->
-<text>pages/r2d/r2d.wxml</text>
+<view id="view">
+  <h1>弧度转角度</h1>
+  <form bindsubmit="formSubmit">
+    <view class="weui-cells__title">输入弧度值：</view>
+    <view class="weui-cell weui-cell_input">
+      <input name="rad" class="weui-input" type="number" placeholder="0" />
+    </view>
+    <view class="weui-cell">{{value}}</view>
+    <view class="btn-area">
+      <button formType="submit" type="primary">计算</button>
+      <button formType="reset">重置</button>
+    </view>
+  </form>
+</view>

@@ -1,11 +1,20 @@
 // pages/ddn/ddn.js
+var sbl = require("../../utils/libsbl.js");
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    date: undefined,
+    value: undefined
+  },
 
+  dateChange: function (e) {
+    this.setData({
+      date: e.detail.value,
+      value: "结果是：" + sbl._slib_d2dn(e.detail.value.slice(0, 4), e.detail.value.slice(5, 7), e.detail.value.slice(8, 10))
+    });
   },
 
   /**

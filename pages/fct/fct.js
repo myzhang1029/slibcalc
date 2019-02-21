@@ -1,11 +1,18 @@
 // pages/fct/fct.js
+var sbl = require("../../utils/libsbl.js");
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    value: undefined
+  },
 
+  formSubmit: function(e) {
+    this.setData({
+      value: "结果是：" + sbl._slib_factorial(e.detail.value["num"])
+    });
   },
 
   /**

@@ -1,6 +1,5 @@
 // pages/pc/pc.js
 var sbl = require("../../utils/libsbl.js");
-var logs = wx.getStorageSync('logs') || []
 Page({
   /**
    * Page initial data
@@ -14,16 +13,12 @@ Page({
     this.setData({
       value1: "结果是：" + sbl._slib_permu(e.detail.value["r"], e.detail.value["n"])
     });
-    logs.unshift(Date.now() + "form1@pc.js called with" + e.detail.value);
-    wx.setStorageSync('logs', logs);
   },
   
   form2Submit: function (e) {
     this.setData({
       value2: "结果是：" + sbl._slib_combi(e.detail.value["r"], e.detail.value["n"])
     });
-    logs.unshift(Date.now() + "form2@pc.js called with" + e.detail.value);
-    wx.setStorageSync('logs', logs);
   },
 
   /**

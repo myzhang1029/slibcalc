@@ -1,2 +1,15 @@
 <!--pages/d2r/d2r.wxml-->
-<text>pages/d2r/d2r.wxml</text>
+<view id="view">
+  <h1>角度转弧度</h1>
+  <form bindsubmit="formSubmit">
+    <view class="weui-cells__title">输入角度值：</view>
+    <view class="weui-cell weui-cell_input">
+      <input name="deg" class="weui-input" type="number" placeholder="0" />
+    </view>
+    <view class="weui-cell">{{value}}</view>
+    <view class="btn-area">
+      <button formType="submit" type="primary">计算</button>
+      <button formType="reset">重置</button>
+    </view>
+  </form>
+</view>

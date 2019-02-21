@@ -17,3 +17,8 @@ h1 {
 navigator {
   margin: 0.3em;
 }
+
+#view {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}

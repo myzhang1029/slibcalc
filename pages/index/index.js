@@ -22,8 +22,7 @@ Page({
       "time to julian day",
       "sunrise/sunset time",
       "sun declination",
-      "split path",
-      "show logs"
+      "show startup logs"
     ],
     cpage: [
       "fct",
@@ -43,12 +42,9 @@ Page({
       "jd",
       "sst",
       "sd",
-      "sp",
       "logs"
     ],
     array: [0,1,2,3,4,5,6,7,8,9,10,
-            11,12,13,14,15,16,17,18]
+            11,12,13,14,15,16,17]
   },
 })
-const sbl = require('../../utils/libsbl.js')
-sbl._slib_prtpn(0,1);

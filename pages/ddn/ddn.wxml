@@ -1,2 +1,11 @@
 <!--pages/ddn/ddn.wxml-->
-<text>pages/ddn/ddn.wxml</text>
+<view id="view">
+  <h1>日期转自1月1日起的日数</h1>
+  <view class="section__title">输入日期</view>
+  <picker mode="date" value="{{date}}" start="1-01-06" bindchange="dateChange">
+    <view class="picker">
+      当前选择: {{date}}
+    </view>
+  </picker>
+  <view class="weui-cell">{{value}}</view>
+</view>
