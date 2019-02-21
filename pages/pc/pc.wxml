@@ -1,0 +1,38 @@
+<!--pages/pc/pc.wxml-->
+<view id="view1">
+  <h1>排列计算器</h1>
+  <form bindsubmit="form1Submit">
+    <view class="weui-cells__title">输入取出数n</view>
+    <view class="weui-cell weui-cell_input">
+      <input name="n" class="weui-input" type="number" placeholder="0" />
+    </view>
+    <view class="weui-cells__title">输入可取量r</view>
+    <view class="weui-cell weui-cells_input">
+      <input name="r" class="weui-input" type="number" placeholder="0" />
+    </view>
+    <view class="weui-cell">{{value1}}</view>
+    <view class="btn-area">
+      <button formType="submit" type="primary">计算</button>
+      <button formType="reset">重置</button>
+    </view>
+  </form>
+</view>
+<hr />
+<view id="view2">
+  <h1>组合计算器</h1>
+  <form bindsubmit="form2Submit">
+    <view class="weui-cells__title">输入取出数n</view>
+    <view class="weui-cell weui-cell_input">
+      <input name="n" class="weui-input" type="number" placeholder="0" />
+    </view>
+    <view class="weui-cells__title">输入可取量r</view>
+    <view class="weui-cell weui-cells_input">
+      <input name="r" class="weui-input" type="number" placeholder="0" />
+    </view>
+    <view class="weui-cell">{{value2}}</view>
+    <view class="btn-area">
+      <button formType="submit" type="primary">计算</button>
+      <button formType="reset">重置</button>
+    </view>
+  </form>
+</view>
