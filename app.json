@@ -1,24 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/pc/pc",
-    "pages/d2r/d2r",
-    "pages/ddn/ddn",
-    "pages/elr/elr",
-    "pages/fct/fct",
-    "pages/gcf/gcf",
-    "pages/h/h",
-    "pages/hms/hms",
-    "pages/jd/jd",
-    "pages/lcm/lcm",
-    "pages/prt/prt",
-    "pages/pt/pt",
-    "pages/r2d/r2d",
-    "pages/rp/rp",
-    "pages/sd/sd",
-    "pages/tm/tm",
-    "pages/sst/sst"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
