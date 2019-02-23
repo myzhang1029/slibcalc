@@ -3,7 +3,6 @@
 const app = getApp()
 
 var sbl = require("../../utils/libsbl.js");
-var hlp = require("../../utils/helper.js");
 
 Page({
 
@@ -11,9 +10,6 @@ Page({
    * Page initial data
    */
   data: {
-    value: "Error",
-    value1: "Error",
-    value2: "Error",
     showFct: false,
     showPc1: false,
     showPc2: false,
@@ -73,7 +69,19 @@ Page({
 
   hms_form1Submit: function(e) {
     let h = e.detail.value["h"];
-    hlp._wrap_h2hms(h, this.setData, sbl._slib_h2hms);
+    var poh = sbl._malloc(8);
+    var pom = sbl._malloc(8);
+    var pos = sbl._malloc(8);
+    sbl._slib_h2hms(h, poh, pom, pos);
+    var oh = sbl.getValue(poh, "double");
+    var om = sbl.getValue(pom, "double");
+    var os = sbl.getValue(pos, "double");
+    this.setData({
+      hms_value1: "结果是：" + oh + ":" + om + ":" + os
+    });
+    sbl._free(poh);
+    sbl._free(pom);
+    sbl._free(pos);
   },
 
   hms_form2Submit: function(e) {
@@ -131,6 +139,58 @@ Page({
     this.setData({
       rp_value: "该两数" + result + "互质"
     });
+  },
+
+  ss_dateChange: function(e) {
+    this.setData({
+      ss_date: e.detail.value
+    });
+  },
+
+  ss_formSubmit: function(e) {
+    var tmnow = sbl._malloc(44);
+    var tmrise = sbl._malloc(44);
+    var tmset = sbl._malloc(44);
+    let v = e.detail.value;
+    let y = v["date"].slice(0, 4);
+    let m = v["date"].slice(5, 7);
+    let d = v["date"].slice(8, 10);
+    /* In emscripten/incoming/system/include/libc/time.h:
+     * struct tm {
+     *     int tm_sec;
+     *     int tm_min;
+     *     int tm_hour;
+     *     int tm_mday;
+     *     int tm_mon;
+     *     int tm_year;
+     *     int tm_wday;
+     *     int tm_yday;
+     *     int tm_isdst;
+     *     long __tm_gmtoff;
+     *     const char *__tm_zone;
+     * };
+     * And sizeof(int) is 4.
+     */
+    for (var i = 0; i < 9; i++) {
+      sbl.setValue(tmnow + i * 4, 0, 'i16');
+    }
+    sbl.setValue(tmnow + 3 * 4, d, 'i16');
+    sbl.setValue(tmnow + 4 * 4, m - 1, 'i16');
+    sbl.setValue(tmnow + 5 * 4, y - 1900, 'i16');
+    sbl._slib_sf_sunrise(v["lat"], v["lon"], v["elev"], v["tz"], tmnow, tmrise, tmset);
+    var h1, min1, s1, h2, min2, s2;
+    h1 = sbl.getValue(tmrise, "i16");
+    min1 = sbl.getValue(tmrise + 4, "i16");
+    s1 = sbl.getValue(tmrise + 8, "i16");
+    h2 = sbl.getValue(tmset, "i16");
+    min2 = sbl.getValue(tmset + 4, "i16");
+    s2 = sbl.getValue(tmset + 4, "i16");
+    this.setData({
+      ss_value: "日出时间：" + h1 + ":" + min1 + ":" + s1 + "\n" + "日落时间：" + h2 + ":" + min2 + ":" + s2
+    })
+    sbl._free(tmnow);
+    sbl._free(tmrise);
+    sbl._free(tmset);
   },
 
   sd_formSubmit: function(e) {
@@ -255,55 +315,45 @@ Page({
         this.setData({
           showSd: !this.data.showSd
         });
+        wx.pageScrollTo({
+          scrollTop: 1000,
+          duration: 0
+        })
         break;
     }
-  },
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function(options) {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function() {
-
   },
 
   /**
    * Lifecycle function--Called when page show
    */
   onShow: function() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function() {
-
+    this.onReset();
+    this.setData({
+      showFct: false,
+      showPc1: false,
+      showPc2: false,
+      showDdn: false,
+      showD2r: false,
+      showR2d: false,
+      showHms1: false,
+      showHms2: false,
+      showElr: false,
+      showGcf: false,
+      showLcm: false,
+      showPrt: false,
+      showPt: false,
+      showRp: false,
+      showJd1: false,
+      showJd2: false,
+      showSs: false,
+      showSd: false,
+    });
   },
 
   /**
    * Page event handler function--Called when user drop down
    */
   onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function() {
 
   },
 

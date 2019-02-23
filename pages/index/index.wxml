@@ -1,12 +1,23 @@
 <!--pages/index/index.wxml-->
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14" bindtap="search"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{wxSearchData.value}}" confirm-type="search" bindconfirm="search" />
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+  </view>
+</view>
 <ul>
-  <li class="weui-panel">
+  <li>
     <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Fct">阶乘计算器</view>
     <view class="dropdown_toggle {{showFct ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="fct_formSubmit">
         <view class="weui-cells__title">输入计算数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="num" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{fct_value}}</view>
         <view class="btn-area">
@@ -22,11 +33,11 @@
       <form bindreset="onReset" bindsubmit="pc_form1Submit">
         <view class="weui-cells__title">输入取出数n：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="n" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="n" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入可取量r：</view>
         <view class="weui-cell weui-cells_input">
-          <input name="r" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="r" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{pc_value1}}</view>
         <view class="btn-area">
@@ -42,11 +53,11 @@
       <form bindreset="onReset" bindsubmit="pc_form2Submit">
         <view class="weui-cells__title">输入取出数n：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="n" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="n" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入可取量r：</view>
         <view class="weui-cell weui-cells_input">
-          <input name="r" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="r" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{pc_value2}}</view>
         <view class="btn-area">
@@ -59,10 +70,10 @@
   <li>
     <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Ddn">日期转自1月1日起的日数</view>
     <view class="dropdown_toggle {{showDdn ? '' : 'hide'}}">
-      <view class="section__title">输入日期</view>
-      <picker mode="date" value="{{ddn_date}}" start="1-01-06" bindchange="ddn_dateChange">
+      <view class="weui-cells__title">输入日期:</view>
+      <picker class="weui-input" mode="date" value="{{ddn_date}}" start="1-01-06" bindchange="ddn_dateChange">
         <view class="picker">
-          当前选择: {{ddn_date}}
+          -{{ddn_date}}
         </view>
       </picker>
       <view class="weui-cell">{{ddn_value}}</view>
@@ -74,7 +85,7 @@
       <form bindreset="onReset" bindsubmit="d2r_formSubmit">
         <view class="weui-cells__title">输入角度值：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="deg" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="deg" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{d2r_value}}</view>
         <view class="btn-area">
@@ -90,7 +101,7 @@
       <form bindreset="onReset" bindsubmit="r2d_formSubmit">
         <view class="weui-cells__title">输入弧度值：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="rad" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="rad" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{r2d_value}}</view>
         <view class="btn-area">
@@ -101,12 +112,12 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Hms1">时转时分秒(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Hms1">时转时分秒</view>
     <view class="dropdown_toggle {{showHms1 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="hms_form1Submit">
         <view class="weui-cells__title">输入小时数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="h" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="h" class="weui-input" type="digit" placeholder="0" />
         </view>
         <view class="weui-cell">{{hms_value1}}</view>
         <view class="btn-area">
@@ -122,15 +133,15 @@
       <form bindreset="onReset" bindsubmit="hms_form2Submit">
         <view class="weui-cells__title">输入小时数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="h" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="h" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入分钟数：</view>
         <view class="weui-cell weui-cells_input">
-          <input name="m" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="m" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入秒数：</view>
         <view class="weui-cell weui-cells_input">
-          <input name="s" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="s" class="weui-input" type="digit" placeholder="0" />
         </view>
         <view class="weui-cell">{{hms_value2}}</view>
         <view class="btn-area">
@@ -146,7 +157,7 @@
       <form bindreset="onReset" bindsubmit="elr_formSubmit">
         <view class="weui-cells__title">输入计算数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="num" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{elr_value}}</view>
         <view class="btn-area">
@@ -162,11 +173,11 @@
       <form bindreset="onReset" bindsubmit="gcf_formSubmit">
         <view class="weui-cells__title">输入计算数1：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num1" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="num1" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入计算数2：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num2" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="num2" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{gcf_value}}</view>
         <view class="btn-area">
@@ -182,11 +193,11 @@
       <form bindreset="onReset" bindsubmit="lcm_formSubmit">
         <view class="weui-cells__title">输入计算数1：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num1" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="num1" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入计算数2：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num2" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="num2" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{lcm_value}}</view>
         <view class="btn-area">
@@ -202,11 +213,11 @@
       <form bindreset="onReset" bindsubmit="prt_formSubmit">
         <view class="weui-cells__title">输入最小值：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="min" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="min" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入个数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="n" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="n" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="btn-area">
           <button formType="submit" type="primary" size="mini">列表</button>
@@ -225,7 +236,7 @@
       <form bindreset="onReset" bindsubmit="pt_formSubmit">
         <view class="weui-cells__title">输入数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="num" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{pt_value}}</view>
         <view class="btn-area">
@@ -241,11 +252,11 @@
       <form bindreset="onReset" bindsubmit="rp_formSubmit">
         <view class="weui-cells__title">输入计算数1：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num1" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="next" name="num1" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cells__title">输入计算数2：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="num2" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="num2" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{rp_value}}</view>
         <view class="btn-area">
@@ -283,6 +294,28 @@
     <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Ss">日出日落时间计算(不可用)</view>
     <view class="dropdown_toggle {{showSs ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="ss_formSubmit">
+        <view class="weui-cells__title">输入经度：</view>
+        <view class="weui-cell weui-cell_input">
+          <input confirm-type="next" name="lon" class="weui-input" type="digit" placeholder="0" />
+        </view>
+        <view class="weui-cells__title">输入纬度：</view>
+        <view class="weui-cell weui-cell_input">
+          <input confirm-type="next" name="lat" class="weui-input" type="digit" placeholder="0" />
+        </view>
+        <view class="weui-cells__title">输入海拔（米）：</view>
+        <view class="weui-cell weui-cell_input">
+          <input confirm-type="next" name="elev" class="weui-input" type="digit" placeholder="0" />
+        </view>
+        <view class="weui-cells__title">输入所在时区：</view>
+        <view class="weui-cell weui-cell_input">
+          <input confirm-type="next" name="tz" class="weui-input" type="digit" placeholder="0" />
+        </view>
+        <view class="weui-cells__title">输入日期:</view>
+        <picker class="weui-input" mode="date" value="{{ss_date}}" start="1-01-06" name="date" bindchange="ss_dateChange">
+          <view class="picker">
+            -{{ss_date}}
+          </view>
+        </picker>
         <view class="weui-cell">{{ss_value}}</view>
         <view class="btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
@@ -297,7 +330,7 @@
       <form bindreset="onReset" bindsubmit="sd_formSubmit">
         <view class="weui-cells__title">输入从1月1日起的日数：</view>
         <view class="weui-cell weui-cell_input">
-          <input name="dn" class="weui-input" type="number" placeholder="0" />
+          <input confirm-type="done" name="dn" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{sd_value}}</view>
         <view class="btn-area">
