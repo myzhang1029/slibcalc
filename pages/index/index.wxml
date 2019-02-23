@@ -1,7 +1,7 @@
 <!--pages/index/index.wxml-->
 <ul>
-  <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Fct">阶乘计算器</view>
+  <li class="weui-panel">
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Fct">阶乘计算器</view>
     <view class="dropdown_toggle {{showFct ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="fct_formSubmit">
         <view class="weui-cells__title">输入计算数：</view>
@@ -17,7 +17,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Pc1">排列计算器</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Pc1">排列计算器</view>
     <view class="dropdown_toggle {{showPc1 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="pc_form1Submit">
         <view class="weui-cells__title">输入取出数n：</view>
@@ -37,7 +37,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Pc2">组合计算器</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Pc2">组合计算器</view>
     <view class="dropdown_toggle {{showPc2 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="pc_form2Submit">
         <view class="weui-cells__title">输入取出数n：</view>
@@ -57,7 +57,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Ddn">日期转自1月1日起的日数</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Ddn">日期转自1月1日起的日数</view>
     <view class="dropdown_toggle {{showDdn ? '' : 'hide'}}">
       <view class="section__title">输入日期</view>
       <picker mode="date" value="{{ddn_date}}" start="1-01-06" bindchange="ddn_dateChange">
@@ -69,7 +69,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="D2r">角度转弧度</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="D2r">角度转弧度</view>
     <view class="dropdown_toggle {{showD2r ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="d2r_formSubmit">
         <view class="weui-cells__title">输入角度值：</view>
@@ -85,7 +85,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="R2d">弧度转角度</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="R2d">弧度转角度</view>
     <view class="dropdown_toggle {{showR2d ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="r2d_formSubmit">
         <view class="weui-cells__title">输入弧度值：</view>
@@ -101,7 +101,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Hms1">时转时分秒(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Hms1">时转时分秒(不可用)</view>
     <view class="dropdown_toggle {{showHms1 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="hms_form1Submit">
         <view class="weui-cells__title">输入小时数：</view>
@@ -117,7 +117,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Hms2">时分秒转时</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Hms2">时分秒转时</view>
     <view class="dropdown_toggle {{showHms2 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="hms_form2Submit">
         <view class="weui-cells__title">输入小时数：</view>
@@ -141,7 +141,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Elr">欧拉函数计算器</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Elr">欧拉函数计算器</view>
     <view class="dropdown_toggle {{showElr ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="elr_formSubmit">
         <view class="weui-cells__title">输入计算数：</view>
@@ -157,7 +157,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Gcf">最大公因数计算器</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Gcf">最大公因数计算器</view>
     <view class="dropdown_toggle {{showGcf ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="gcf_formSubmit">
         <view class="weui-cells__title">输入计算数1：</view>
@@ -177,7 +177,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Lcm">最小公倍数计算器</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Lcm">最小公倍数计算器</view>
     <view class="dropdown_toggle {{showLcm ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="lcm_formSubmit">
         <view class="weui-cells__title">输入计算数1：</view>
@@ -197,7 +197,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Prt">质数列表</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Prt">质数列表</view>
     <view class="dropdown_toggle {{showPrt ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="prt_formSubmit">
         <view class="weui-cells__title">输入最小值：</view>
@@ -220,7 +220,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Pt">质数判断</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Pt">质数判断</view>
     <view class="dropdown_toggle {{showPt ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="pt_formSubmit">
         <view class="weui-cells__title">输入数：</view>
@@ -236,7 +236,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Rp">互质判断</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Rp">互质判断</view>
     <view class="dropdown_toggle {{showRp ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="rp_formSubmit">
         <view class="weui-cells__title">输入计算数1：</view>
@@ -256,7 +256,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Jd1">儒略日转公元日(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd1">儒略日转公元日(不可用)</view>
     <view class="dropdown_toggle {{showJd1 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="jd_form1Submit">
         <view class="weui-cell">{{jd_value1}}</view>
@@ -268,7 +268,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Jd2">公元日转儒略日(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd2">公元日转儒略日(不可用)</view>
     <view class="dropdown_toggle {{showJd2 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="jd_form2Submit">
         <view class="weui-cell">{{jd_value2}}</view>
@@ -280,7 +280,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Ss">日出日落时间计算(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Ss">日出日落时间计算(不可用)</view>
     <view class="dropdown_toggle {{showSs ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="ss_formSubmit">
         <view class="weui-cell">{{ss_value}}</view>
@@ -292,7 +292,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title" bindtap="toggleShow" data-param="Sd">太阳倾角计算</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Sd">太阳倾角计算</view>
     <view class="dropdown_toggle {{showSd ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="sd_formSubmit">
         <view class="weui-cells__title">输入从1月1日起的日数：</view>

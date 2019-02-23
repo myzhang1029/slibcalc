@@ -15,11 +15,11 @@ h1 {
 }
 
 .dropdown_title {
-  border: 1rpx solid #d9d9d9;
-  text-align: center;
+  border-bottom: 1rpx solid #d9d9d9;
 }
 
 .dropdown_toggle {
+  border-bottom: 1rpx solid #d9d9d9;
   margin-bottom: 4px;
   margin-top: 8px;
   padding-bottom: 15px;
