@@ -20,7 +20,7 @@
           <input confirm-type="done" name="num" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{fct_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -40,7 +40,7 @@
           <input confirm-type="done" name="r" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{pc_value1}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -60,7 +60,7 @@
           <input confirm-type="done" name="r" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{pc_value2}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -88,7 +88,7 @@
           <input confirm-type="done" name="deg" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{d2r_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -104,7 +104,7 @@
           <input confirm-type="done" name="rad" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{r2d_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -120,7 +120,7 @@
           <input confirm-type="done" name="h" class="weui-input" type="digit" placeholder="0" />
         </view>
         <view class="weui-cell">{{hms_value1}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -144,7 +144,7 @@
           <input confirm-type="done" name="s" class="weui-input" type="digit" placeholder="0" />
         </view>
         <view class="weui-cell">{{hms_value2}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -160,7 +160,7 @@
           <input confirm-type="done" name="num" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{elr_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -180,7 +180,7 @@
           <input confirm-type="done" name="num2" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{gcf_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -200,7 +200,7 @@
           <input confirm-type="done" name="num2" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{lcm_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -219,7 +219,7 @@
         <view class="weui-cell weui-cell_input">
           <input confirm-type="done" name="n" class="weui-input" type="number" placeholder="0" />
         </view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">列表</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -239,7 +239,7 @@
           <input confirm-type="done" name="num" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{pt_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">判断</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -259,7 +259,7 @@
           <input confirm-type="done" name="num2" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{rp_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">判断</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -275,7 +275,7 @@
           <input confirm-type="done" name="num2" class="weui-input" type="digit" placeholder="0" />
         </view>
         <view class="weui-cell">{{jd_value1}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -287,7 +287,7 @@
     <view class="dropdown_toggle {{showJd2 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="jd_form2Submit">
         <view class="weui-cell">{{jd_value2}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>
@@ -308,7 +308,7 @@
         </view>
         <view class="weui-cells__title">输入海拔（米）：</view>
         <view class="weui-cell weui-cell_input">
-          <input confirm-type="next" name="elev" class="weui-input" type="digit" placeholder="0" value="{{ss_elev}}"/>
+          <input confirm-type="next" name="elev" class="weui-input" type="digit" placeholder="0" value="{{ss_elev}}" />
         </view>
         <view class="weui-cells__title">输入所在时区：</view>
         <view class="weui-cell weui-cell_input">
@@ -338,7 +338,7 @@
           <input confirm-type="done" name="dn" class="weui-input" type="number" placeholder="0" />
         </view>
         <view class="weui-cell">{{sd_value}}</view>
-        <view class="btn-area">
+        <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
           <button formType="reset" size="mini">重置</button>
         </view>

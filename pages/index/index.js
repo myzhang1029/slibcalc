@@ -145,6 +145,18 @@ Page({
     });
   },
 
+  jd_form1Submit: function(e) {
+    this.setData({
+      jd_value1: "不可用"
+    });
+  },
+
+  jd_form2Submit: function(e) {
+    this.setData({
+      jd_value2: "不可用"
+    });
+  },
+
   ss_dateChange: function(e) {
     this.setData({
       ss_date: e.detail.value
@@ -152,6 +164,11 @@ Page({
   },
 
   ss_formSubmit: function(e) {
+    if (v["date"] == null) {
+      this.setData({
+        ss_value: "日期未填"
+      });
+    }
     var tmnow = sbl._malloc(44);
     var tmrise = sbl._malloc(44);
     var tmset = sbl._malloc(44);
@@ -191,7 +208,7 @@ Page({
     s2 = sbl.getValue(tmset, "i32");
     this.setData({
       ss_value: "日出时间：" + h1 + ":" + min1 + ":" + s1 + "\n" + "日落时间：" + h2 + ":" + min2 + ":" + s2
-    })
+    });
     sbl._free(tmnow);
     sbl._free(tmrise);
     sbl._free(tmset);
@@ -254,7 +271,7 @@ Page({
     });
   },
 
-toggleShow: function(e) {
+  toggleShow: function(e) {
     let opt = e.target.dataset.param;
     switch (opt) {
       case "Fct":
