@@ -164,6 +164,7 @@ Page({
   },
 
   ss_formSubmit: function(e) {
+    let v = e.detail.value;
     if (v["date"] == null) {
       this.setData({
         ss_value: "日期未填"
@@ -172,7 +173,6 @@ Page({
     var tmnow = sbl._malloc(44);
     var tmrise = sbl._malloc(44);
     var tmset = sbl._malloc(44);
-    let v = e.detail.value;
     let y = v["date"].slice(0, 4);
     let m = v["date"].slice(5, 7);
     let d = v["date"].slice(8, 10);
