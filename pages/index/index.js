@@ -233,25 +233,28 @@ Page({
 
   getLocation: function(e) {
     var d = new Date();
-    var lat, lon, elev, tz = d.getTimezoneOffset()/60;
-    wx.getLocation({
-      type: "wgs84",
-      altitude: "true",
-      success(res) {
-        lat = res.latitude;
-        lon = res.longitude;
-        elev = res.altitude;
+    var lat, lon, elev, tz = d.getTimezoneOffset() / 60;
+    var that = this;
+    wx.authorize({
+      scope: 'scope.userLocation',
+      success() {
+        wx.getLocation({
+          type: "wgs84",
+          altitude: "true",
+          success(res) {
+            that.setData({
+              ss_lat: res.latitude,
+              ss_lon: res.longitude,
+              ss_elev: res.altitude,
+              ss_tz: -tz
+            });
+          }
+        });
       }
     });
-    this.setData({
-      ss_lat: lat,
-      ss_lon: lon,
-      ss_elev: elev,
-      ss_tz: tz
-    });
   },
-  
-  toggleShow: function(e) {
+
+toggleShow: function(e) {
     let opt = e.target.dataset.param;
     switch (opt) {
       case "Fct":
