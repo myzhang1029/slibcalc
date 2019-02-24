@@ -300,19 +300,19 @@
       <form bindreset="onReset" bindsubmit="ss_formSubmit">
         <view class="weui-cells__title">输入经度：</view>
         <view class="weui-cell weui-cell_input">
-          <input confirm-type="next" name="lon" class="weui-input" type="digit" placeholder="0" />
+          <input confirm-type="next" name="lon" class="weui-input" type="digit" placeholder="0" value="{{ss_lon}}" />
         </view>
         <view class="weui-cells__title">输入纬度：</view>
         <view class="weui-cell weui-cell_input">
-          <input confirm-type="next" name="lat" class="weui-input" type="digit" placeholder="0" />
+          <input confirm-type="next" name="lat" class="weui-input" type="digit" placeholder="0" value="{{ss_lat}}" />
         </view>
         <view class="weui-cells__title">输入海拔（米）：</view>
         <view class="weui-cell weui-cell_input">
-          <input confirm-type="next" name="elev" class="weui-input" type="digit" placeholder="0" />
+          <input confirm-type="next" name="elev" class="weui-input" type="digit" placeholder="0" value="{{ss_elev}}"/>
         </view>
         <view class="weui-cells__title">输入所在时区：</view>
         <view class="weui-cell weui-cell_input">
-          <input confirm-type="next" name="tz" class="weui-input" type="digit" placeholder="0" />
+          <input confirm-type="next" name="tz" class="weui-input" type="digit" placeholder="0" value="{{ss_tz}}" />
         </view>
         <view class="weui-cells__title">输入日期:</view>
         <picker class="weui-input" mode="date" value="{{ss_date}}" start="1-01-06" name="date" bindchange="ss_dateChange">
