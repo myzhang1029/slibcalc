@@ -172,19 +172,19 @@ Page({
      * And sizeof(int) is 4.
      */
     for (var i = 0; i < 9; i++) {
-      sbl.setValue(tmnow + i * 4, 0, 'i16');
+      sbl.setValue(tmnow + i * 4, 0, 'i32');
     }
-    sbl.setValue(tmnow + 3 * 4, d, 'i16');
-    sbl.setValue(tmnow + 4 * 4, m - 1, 'i16');
-    sbl.setValue(tmnow + 5 * 4, y - 1900, 'i16');
+    sbl.setValue(tmnow + 3 * 4, d, 'i32');
+    sbl.setValue(tmnow + 4 * 4, m - 1, 'i32');
+    sbl.setValue(tmnow + 5 * 4, y - 1900, 'i32');
     sbl._slib_sf_sunrise(v["lat"], v["lon"], v["elev"], v["tz"], tmnow, tmrise, tmset);
     var h1, min1, s1, h2, min2, s2;
-    h1 = sbl.getValue(tmrise, "i16");
-    min1 = sbl.getValue(tmrise + 4, "i16");
-    s1 = sbl.getValue(tmrise + 8, "i16");
-    h2 = sbl.getValue(tmset, "i16");
-    min2 = sbl.getValue(tmset + 4, "i16");
-    s2 = sbl.getValue(tmset + 4, "i16");
+    h1 = sbl.getValue(tmrise + 8, "i32");
+    min1 = sbl.getValue(tmrise + 4, "i32");
+    s1 = sbl.getValue(tmrise, "i32");
+    h2 = sbl.getValue(tmset + 8, "i32");
+    min2 = sbl.getValue(tmset + 4, "i32");
+    s2 = sbl.getValue(tmset, "i32");
     this.setData({
       ss_value: "日出时间：" + h1 + ":" + min1 + ":" + s1 + "\n" + "日落时间：" + h2 + ":" + min2 + ":" + s2
     })

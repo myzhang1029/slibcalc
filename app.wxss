@@ -29,7 +29,12 @@ h1 {
   display: none;
 }
 
-button[size="mini"] {
+button[size="mini"]:not(.btn-three) {
   width: 47%;
   margin: 0 1%;
+}
+
+.btn-three{
+  width: 31%;
+  margin:0 1%;
 }

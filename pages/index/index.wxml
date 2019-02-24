@@ -270,6 +270,10 @@
     <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd1">儒略日转公元日(不可用)</view>
     <view class="dropdown_toggle {{showJd1 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="jd_form1Submit">
+        <view class="weui-cells__title">输入儒略日：</view>
+        <view class="weui-cell weui-cell_input">
+          <input confirm-type="done" name="num2" class="weui-input" type="digit" placeholder="0" />
+        </view>
         <view class="weui-cell">{{jd_value1}}</view>
         <view class="btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>
@@ -291,7 +295,7 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Ss">日出日落时间计算(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Ss">日出日落时间计算</view>
     <view class="dropdown_toggle {{showSs ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="ss_formSubmit">
         <view class="weui-cells__title">输入经度：</view>
@@ -317,9 +321,10 @@
           </view>
         </picker>
         <view class="weui-cell">{{ss_value}}</view>
-        <view class="btn-area">
-          <button formType="submit" type="primary" size="mini">计算</button>
-          <button formType="reset" size="mini">重置</button>
+        <view class="weui-btn-area">
+          <button formType="submit" type="primary" size="mini" class="btn-three">计算</button>
+          <button formType="reset" size="mini" class="btn-three">重置</button>
+          <button bindtap="getLocation" size="mini" class="btn-three">自动获取</button>
         </view>
       </form>
     </view>
