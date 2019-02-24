@@ -28,6 +28,10 @@ Page({
     showJd2: false,
     showSs: false,
     showSd: false,
+    ss_lat: "",
+    ss_lon: "",
+    ss_elev: "",
+    ss_tz: "",
   },
 
   fct_formSubmit: function(e) {
@@ -219,10 +223,34 @@ Page({
       jd_value1: "",
       jd_value2: "",
       ss_value: "",
-      sd_value: ""
+      sd_value: "",
+      ss_lat: "",
+      ss_lon: "",
+      ss_elev: "",
+      ss_tz: "",
     });
   },
 
+  getLocation: function(e) {
+    var d = new Date();
+    var lat, lon, elev, tz = d.getTimezoneOffset()/60;
+    wx.getLocation({
+      type: "wgs84",
+      altitude: "true",
+      success(res) {
+        lat = res.latitude;
+        lon = res.longitude;
+        elev = res.altitude;
+      }
+    });
+    this.setData({
+      ss_lat: lat,
+      ss_lon: lon,
+      ss_elev: elev,
+      ss_tz: tz
+    });
+  },
+  
   toggleShow: function(e) {
     let opt = e.target.dataset.param;
     switch (opt) {
