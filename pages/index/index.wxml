@@ -267,12 +267,12 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd1">儒略日转公元日(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd1">儒略日转公元日</view>
     <view class="dropdown_toggle {{showJd1 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="jd_form1Submit">
         <view class="weui-cells__title">输入儒略日：</view>
         <view class="weui-cell weui-cell_input">
-          <input confirm-type="done" name="num2" class="weui-input" type="digit" placeholder="0" />
+          <input confirm-type="done" name="jd" class="weui-input" type="digit" placeholder="0" />
         </view>
         <view class="weui-cell">{{jd_value1}}</view>
         <view class="weui-btn-area">
@@ -283,9 +283,21 @@
     </view>
   </li>
   <li>
-    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd2">公元日转儒略日(不可用)</view>
+    <view class="dropdown_title weui-cell" bindtap="toggleShow" data-param="Jd2">公元日转儒略日</view>
     <view class="dropdown_toggle {{showJd2 ? '' : 'hide'}}">
       <form bindreset="onReset" bindsubmit="jd_form2Submit">
+        <view class="weui-cells__title">输入日期:</view>
+        <picker class="weui-input" mode="date" value="{{jd_date2}}" start="1-01-06" name="date" bindchange="jd_date2Change">
+          <view class="picker">
+            -{{jd_date2}}
+          </view>
+        </picker>
+        <view class="weui-cells__title">输入时间:</view>
+        <picker class="weui-input" mode="time" value="{{jd_time2}}" name="time" bindchange="jd_time2Change">
+          <view class="picker">
+            -{{jd_time2}}
+          </view>
+        </picker>
         <view class="weui-cell">{{jd_value2}}</view>
         <view class="weui-btn-area">
           <button formType="submit" type="primary" size="mini">计算</button>

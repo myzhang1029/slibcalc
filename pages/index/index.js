@@ -72,7 +72,7 @@ Page({
   },
 
   hms_form1Submit: function(e) {
-    let h = e.detail.value["h"];
+    var h = e.detail.value["h"];
     var poh = sbl._malloc(8);
     var pom = sbl._malloc(8);
     var pos = sbl._malloc(8);
@@ -146,15 +146,64 @@ Page({
   },
 
   jd_form1Submit: function(e) {
+    var tm = sbl._malloc(44);
+    sbl._slib_jd2tm(e.detail.value["jd"], tm);
+    var sec = sbl.getValue(tm, 'i32');
+    var min = sbl.getValue(tm + 4, 'i32');
+    var hour = sbl.getValue(tm + 8, 'i32');
+    var mday = sbl.getValue(tm + 12, 'i32');
+    var mon = sbl.getValue(tm + 16, 'i32') + 1;
+    var year = sbl.getValue(tm + 20, 'i32') + 1900;
     this.setData({
-      jd_value1: "不可用"
+      jd_value1: "结果是：" + year + "/" + mon + "/" + mday + " " + hour + ":" + min + ":" + sec
+    });
+    sbl._free(tm);
+  },
+
+  jd_date2Change: function(e) {
+    this.setData({
+      jd_date2: e.detail.value
+    });
+  },
+
+  jd_time2Change: function(e) {
+    this.setData({
+      jd_time2: e.detail.value
     });
   },
 
   jd_form2Submit: function(e) {
+    var hour, min, year, mon, mday;
+    var v = e.detail.value;
+    if (v["date"] == null) {
+      this.setData({
+        jd_value2: "日期未填"
+      });
+      return;
+    }else{
+      year = v["date"].slice(0, 4);
+      mon = v["date"].slice(5, 7);
+      mday = v["date"].slice(8, 10);
+    }
+    if (v["time"] == null) {
+      hour = 12;
+      min = 0;
+    } else {
+      hour = v["time"].slice(0, 2);
+      min = v["time"].slice(3, 5);
+    }
+    var tm = sbl._malloc(44);
+    sbl.setValue(tm, 0, 'i32');
+    sbl.setValue(tm + 4, min, 'i32');
+    sbl.setValue(tm + 8, hour, 'i32');
+    sbl.setValue(tm + 12, mday, 'i32');
+    sbl.setValue(tm + 16, mon, 'i32') - 1;
+    sbl.setValue(tm + 20, year, 'i32') - 1900;
+    var jd=sbl._slib_tm2jd(tm);
     this.setData({
-      jd_value2: "不可用"
+      jd_value2: jd
     });
+    sbl._free(tm);
   },
 
   ss_dateChange: function(e) {
@@ -164,18 +213,19 @@ Page({
   },
 
   ss_formSubmit: function(e) {
-    let v = e.detail.value;
+    var v = e.detail.value;
     if (v["date"] == null) {
       this.setData({
         ss_value: "日期未填"
       });
+      return;
     }
     var tmnow = sbl._malloc(44);
     var tmrise = sbl._malloc(44);
     var tmset = sbl._malloc(44);
-    let y = v["date"].slice(0, 4);
-    let m = v["date"].slice(5, 7);
-    let d = v["date"].slice(8, 10);
+    var y = v["date"].slice(0, 4);
+    var m = v["date"].slice(5, 7);
+    var d = v["date"].slice(8, 10);
     /* In emscripten/incoming/system/include/libc/time.h:
      * struct tm {
      *     int tm_sec;
@@ -195,9 +245,9 @@ Page({
     for (var i = 0; i < 9; i++) {
       sbl.setValue(tmnow + i * 4, 0, 'i32');
     }
-    sbl.setValue(tmnow + 3 * 4, d, 'i32');
-    sbl.setValue(tmnow + 4 * 4, m - 1, 'i32');
-    sbl.setValue(tmnow + 5 * 4, y - 1900, 'i32');
+    sbl.setValue(tmnow + 12, d, 'i32');
+    sbl.setValue(tmnow + 16, m - 1, 'i32');
+    sbl.setValue(tmnow + 20, y - 1900, 'i32');
     sbl._slib_sf_sunrise(v["lat"], v["lon"], v["elev"], v["tz"], tmnow, tmrise, tmset);
     var h1, min1, s1, h2, min2, s2;
     h1 = sbl.getValue(tmrise + 8, "i32");
@@ -265,14 +315,24 @@ Page({
               ss_elev: res.altitude,
               ss_tz: -tz
             });
+          },
+          fail(e) {
+            that.setData({
+              ss_value: "位置请求失败"
+            });
           }
+        });
+      },
+      fail(e) {
+        that.setData({
+          ss_value: "位置请求被拒绝"
         });
       }
     });
   },
 
   toggleShow: function(e) {
-    let opt = e.target.dataset.param;
+    var opt = e.target.dataset.param;
     switch (opt) {
       case "Fct":
         this.setData({
