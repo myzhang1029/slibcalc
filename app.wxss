@@ -34,7 +34,7 @@ button[size="mini"]:not(.btn-three) {
   margin: 0 1%;
 }
 
-.btn-three{
+.btn-three {
   width: 31%;
-  margin:0 1%;
+  margin: 0 1%;
 }

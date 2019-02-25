@@ -180,7 +180,7 @@ Page({
         jd_value2: "日期未填"
       });
       return;
-    }else{
+    } else {
       year = v["date"].slice(0, 4);
       mon = v["date"].slice(5, 7);
       mday = v["date"].slice(8, 10);
@@ -199,7 +199,7 @@ Page({
     sbl.setValue(tm + 12, mday, 'i32');
     sbl.setValue(tm + 16, mon, 'i32') - 1;
     sbl.setValue(tm + 20, year, 'i32') - 1900;
-    var jd=sbl._slib_tm2jd(tm);
+    var jd = sbl._slib_tm2jd(tm);
     this.setData({
       jd_value2: jd
     });
